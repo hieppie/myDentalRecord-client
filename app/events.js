@@ -3,7 +3,7 @@ const dentalUi = require('./ui')
 const dentalApi = require('./api')
 const getFormFields = require('../lib/get-form-fields')
 
-const onSignup = function (event) {
+const onSignUp = function (event) {
   // prevent refresh after submitting
   event.preventDefault()
   console.log('logging sign up button')
@@ -19,9 +19,22 @@ const onSignup = function (event) {
     .catch(() => dentalUi.onSignUpFailure)
 }
 
+const onSignIn = function (event) {
+  event.preventDefault()
+  console.log('logging sign in button')
+
+  const form = event.target
+  const data = getFormFields(form)
+  console.log(data)
+
+  dentalApi.signIn(data)
+    .then((response) => dentalUi.onSignInSuccess(response))
+    .catch(() => dentalUi.onSignInFailure())
+}
+
 module.exports = {
-  onSignUp: onSignup
-  // onSignIn,
+  onSignUp,
+  onSignIn
   // onSignOut,
 
 }

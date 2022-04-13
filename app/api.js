@@ -9,9 +9,18 @@ const signUp = function (data) {
   })
 }
 
+const signIn = function (data) {
+  console.log(store)
+  return $.ajax({
+    method: 'POST',
+    url: config.apiUrl + '/sign-in',
+    data
+  })
+}
+
 module.exports = {
-  signUp: signUp
-  // signIn,
+  signUp,
+  signIn
   // signOut,
 
 }

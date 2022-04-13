@@ -7,4 +7,5 @@ const dentalEvents = require('./events')
 
 $(() => {
   $('#sign-up-form').on('submit', dentalEvents.onSignUp)
+  $('#sign-in-form').on('submit', dentalEvents.onSignIn)
 })

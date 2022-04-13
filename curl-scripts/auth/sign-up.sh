@@ -3,8 +3,8 @@
 
 # sh curl-scripts/auth/sign-up.sh 
 
-EMAIL="sto@store.com"
-PASSWORD="store"
+EMAIL="sto@sto.com"
+PASSWORD="sto"
 
 API="http://localhost:4741"
 URL_PATH="/sign-up"
