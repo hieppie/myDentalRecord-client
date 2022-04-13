@@ -3,7 +3,8 @@
 
 // use require without a reference to ensure a file is bundled
 // require('./example')
+const dentalEvents = require('./events')
 
 $(() => {
-  // your JS code goes here
+  $('#sign-up-form').on('submit', dentalEvents.onSignUp)
 })
