@@ -32,12 +32,24 @@ const onSignOutFailure = function () {
   $('#sign-out-message').html('You successfully signed out').css('color', 'white')
 }
 
+const onChangePasswordSuccess = function () {
+  $('#change-pw-message')
+    .html('You successfully changed your password')
+    .css('color', 'white')
+}
+
+const onChangePasswordFailure = function () {
+  $('#change-pw-message').html('Error on change password').css('color', 'red')
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
   onSignInSuccess,
   onSignInFailure,
   onSignOutSuccess,
-  onSignOutFailure
+  onSignOutFailure,
+  onChangePasswordSuccess,
+  onChangePasswordFailure
 
 }

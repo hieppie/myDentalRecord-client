@@ -9,4 +9,5 @@ $(() => {
   $('#sign-up-form').on('submit', dentalEvents.onSignUp)
   $('#sign-in-form').on('submit', dentalEvents.onSignIn)
   $('#sign-out-button').on('click', dentalEvents.onSignOut)
+  $('#change-pw-form').on('submit', dentalEvents.onChangePassword)
 })

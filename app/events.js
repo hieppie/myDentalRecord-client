@@ -33,14 +33,28 @@ const onSignIn = function (event) {
 }
 
 const onSignOut = function () {
+  console.log('logging sign out button')
   dentalApi.signOut()
     .then((response) => dentalUi.onSignOutSuccess(response))
     .catch(() => dentalUi.onSignOutFailure())
 }
 
+const onChangePassword = function (event) {
+  event.preventDefault()
+  console.log('logging change pw button')
+
+  const form = event.target
+  const data = getFormFields(form)
+
+  dentalApi.changePassword(data)
+    .then(() => dentalUi.onChangePasswordSuccess())
+    .catch(() => dentalUi.onChangePasswordFailure())
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
-  onSignOut
+  onSignOut,
+  onChangePassword
 
 }
