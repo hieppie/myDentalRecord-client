@@ -18,9 +18,21 @@ const signIn = function (data) {
   })
 }
 
+const signOut = function () {
+  // console.log(store)
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + '/sign-out',
+    headers: {
+      // needs the token from sign in to sign out
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
-  signIn
-  // signOut,
+  signIn,
+  signOut
 
 }

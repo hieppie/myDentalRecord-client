@@ -32,9 +32,15 @@ const onSignIn = function (event) {
     .catch(() => dentalUi.onSignInFailure())
 }
 
+const onSignOut = function () {
+  dentalApi.signOut()
+    .then((response) => dentalUi.onSignOutSuccess(response))
+    .catch(() => dentalUi.onSignOutFailure())
+}
+
 module.exports = {
   onSignUp,
-  onSignIn
-  // onSignOut,
+  onSignIn,
+  onSignOut
 
 }

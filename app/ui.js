@@ -23,12 +23,21 @@ const onSignInFailure = function () {
   $('#sign-in-message').html('Error: can not sign in!').css('color', 'red')
 }
 
+const onSignOutSuccess = function () {
+  $('form').trigger('reset')
+  $('#sign-out-message').html('You successfully signed out').css('color', 'white')
+}
+
+const onSignOutFailure = function () {
+  $('#sign-out-message').html('You successfully signed out').css('color', 'white')
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
   onSignInSuccess,
-  onSignInFailure
-  // onSignOutSuccess,
-  // onSignOutFailure,
+  onSignInFailure,
+  onSignOutSuccess,
+  onSignOutFailure
 
 }

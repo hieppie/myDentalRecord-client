@@ -2,8 +2,8 @@
 # sh curl-scripts/auth/sign-in.sh 
 
 
-EMAIL="sto@store.com"
-PASSWORD="store"
+EMAIL="hello@hello.com"
+PASSWORD="hello"
 
 
 API="http://localhost:4741"
