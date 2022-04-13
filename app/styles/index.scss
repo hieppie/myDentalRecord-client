@@ -1,1 +1,80 @@
 @import '~bootstrap/scss/bootstrap';
+
+@import '~bootstrap/scss/bootstrap';
+
+body {
+    margin: 40px
+}
+
+#success-message {
+    color: green
+}
+
+#error-message {
+    color: red
+}
+
+.box,
+.cell {
+    align-items: center;
+    background-color: grey;
+    border: 1px solid white;
+    color: white;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 80px;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 5px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.cell:hover {
+    background-color: rgb(241, 241, 14);
+}
+
+#tictactoes {
+    color: gold
+}
+
+.tictac-hero {
+    max-width: 70px;
+    max-height: 60px;
+}
+
+div.cell>.tictac-hero {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#header-tictac,
+#header-toes {
+    max-width: 150px;
+    max-height: 85px;
+}
+
+
+.alt-color {
+    background-color: rgb(32, 141, 181);
+}
+
+.divider {
+    width: 15px;
+    height: auto;
+    display: inline-block;
+}
+
+.btn {
+    border-radius: 10px;
+    text-transform: uppercase;
+    box-shadow: 5px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+h3,
+button,
+#sign-in-message,
+#sign-out-message,
+#sign-up-message {
+font-family: 'Roboto',
+sans-serif;
+}

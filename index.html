@@ -1,17 +1,125 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
-      <h1>Browser Template</h1>
-    </body>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+
+      <div class="col-12 box ">
+       
+        <div class="divider"></div>
+        <h3 id="tictactoes">My Dental Records</h3>
+        <div class="divider"></div>
+       
+      </div>
+    </div>
+  </div>
+
+
+  <!-- created a section for all username related and put each under different section -->
+  <section id="username">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 box alt-color" id="sign-up-div">
+          <h3>Not a patient?</h3>
+          <div class="divider"></div>
+          <form id="sign-up-form">
+            <input name="credentials[email]" type="email" placeholder="Email">
+            <input name="credentials[password]" type="password" placeholder="Enter password">
+
+            <input name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
+            <div class="divider"></div>
+            <button type="submit" class="btn btn-secondary">Sign Up</button>
+
+          </form>
+        </div>
+
+        <div class="col-12 box alt-color" id="sign-in-div">
+          <h3>Already a patient?</h3>
+          <div class="divider"></div>
+          <div class="divider"></div>
+          <form id="sign-in-form">
+            <input name="credentials[email]" type="email" placeholder="Email">
+            <input name="credentials[password]" type="password" placeholder="Enter password">
+            <div class="divider"></div>
+            <button type="submit" class="btn btn-secondary">Sign In</button>
+
+          </form>
+        </div>
+
+        <div class="col-12 box alt-color" id="sign-out-div">
+          <h3>Done for today?</h3>
+          <div class="divider"></div>
+          <button id="sign-out-button" class="btn btn-secondary" type="submit">SIGN OUT</button>
+        </div>
+
+        <div class="col-12 box alt-color" id="game-alert">
+          <h3></h3>
+          <div class="divider"></div>
+          <p id="sign-up-message"></p>
+          <p id="sign-in-message"></p>
+          <p id="sign-out-message"></p>
+
+        <!-- <div class="col-12 box alt-color" id="game-start-div">
+          <button id="game-start-button" class="btn btn-secondary">Start Game/Restart</button>
+          <div class="divider"></div>
+          <!-- <button id="play-again-button" class="btn btn-secondary" >Restart</button> -->
+          <div class="divider"></div>
+        </div> -->
+
+
+          <!-- <Section class="game-alert">
+            <p id="winner-alert"></p>
+            
+            <h3 id="tie-alert">It's a Draw!</h3>
+          </Section> -->
+        </div>
+
+      </div>
+    </div>
+    <div id="messages">
+      <p id="success-message"></p>
+      <p id="error-message"></p>
+    </div>
+  </section>
+
+
+
+  <!-- <section id="game">
+    <section id="game-board">
+      <div class="container">
+        <h1></h1>
+        <div id="cells" class="row">
+          <div id="0" data-cell-index=0 class="col-4 cell alt-color"></div>
+          <div id="1" data-cell-index=1 class="col-4 cell alt-color"></div>
+          <div id="2" data-cell-index=2 class="col-4 cell alt-color"></div>
+          <div id="3" data-cell-index=3 class="col-4 cell alt-color"></div>
+          <div id="4" data-cell-index=4 class="col-4 cell alt-color"></div>
+          <div id="5" data-cell-index=5 class="col-4 cell alt-color"></div>
+          <div id="6" data-cell-index=6 class="col-4 cell alt-color"></div>
+          <div id="7" data-cell-index=7 class="col-4 cell alt-color"></div>
+          <div id="8" data-cell-index=8 class="col-4 cell alt-color"></div>
+        </div>
+      </div>
+    </section>
+  </section> -->
+
+</body>
+
 </html>
