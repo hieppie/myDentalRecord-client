@@ -42,6 +42,38 @@ const onChangePasswordFailure = function () {
   $('#change-pw-message').html('Error on change password').css('color', 'red')
 }
 
+const onIndexSuccess = function (responseData) {
+  // extract the books from the response's data into a variable
+  const treatments = responseData.treatments
+
+  // log the information we get back from the API so we know how we can
+  // interact with it.
+  console.log(responseData)
+
+  // create a string that will store the html for all of the books we want to
+  // display on the page. Start as an empty string.
+  let treatmentsHtml = ''
+
+  // loop through each book from the API
+  treatments.forEach((treatment) => {
+    // add (concatenate) the book html for each book, to the booksHtml string
+    //
+    // when adding the delete button add a data-id attribute, with the id of the
+    // button we want to delete
+    // add a data-id attribute for our dynamic edit form as well
+    treatmentsHtml += `
+      <h4>Name: ${treatment.name}</h4>
+      <p>Tooth: ${treatment.tooth}</p>
+      <p>radiograph: ${treatment.radiograph}</p>
+      <p>date: ${treatment.date}</p>
+      <p>ID: ${treatment._id}</p>
+    `
+  })
+
+  // set the html for all of our books all at once
+  $('#treatments-display').html(treatmentsHtml)
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -50,6 +82,7 @@ module.exports = {
   onSignOutSuccess,
   onSignOutFailure,
   onChangePasswordSuccess,
-  onChangePasswordFailure
+  onChangePasswordFailure,
+  onIndexSuccess
 
 }

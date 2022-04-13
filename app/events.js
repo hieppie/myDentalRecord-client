@@ -2,6 +2,7 @@ const store = require('./store')
 const dentalUi = require('./ui')
 const dentalApi = require('./api')
 const getFormFields = require('../lib/get-form-fields')
+const { apiUrl } = require('./config')
 
 const onSignUp = function (event) {
   // prevent refresh after submitting
@@ -51,10 +52,17 @@ const onChangePassword = function (event) {
     .catch(() => dentalUi.onChangePasswordFailure())
 }
 
+const onIndexTreatments = function () {
+  dentalApi.index()
+    .then(() => dentalUi.onIndexSuccess)
+    .catch(() => dentalUi.onIndexFailure)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
-  onChangePassword
+  onChangePassword,
+  onIndexTreatments
 
 }

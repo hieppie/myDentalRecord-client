@@ -43,10 +43,22 @@ const changePassword = function (data) {
   })
 }
 
+const index = function () {
+  return $.ajax({
+    url: config.apiUrl + '/treatments',
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   signOut,
-  changePassword
+  changePassword,
+
+  index
 
 }
