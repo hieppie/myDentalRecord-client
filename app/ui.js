@@ -43,7 +43,7 @@ const onChangePasswordFailure = function () {
 }
 
 const onIndexSuccess = function (responseData) {
-  // extract the books from the response's data into a variable
+  // extract all the Tx from the response's data into a variable
   const treatments = responseData.allTreatments
 
   // log the information we get back from the API so we know how we can
@@ -74,6 +74,28 @@ const onIndexSuccess = function (responseData) {
   $('#treatments-display').html(treatmentsHtml)
 }
 
+const onShowSuccess = function (responseData) {
+  // log the information we get back from the API so we know how we can
+  // interact with it.
+  console.log(responseData)
+
+  // build HTML element with data for one book
+  const treatmentHtml = `
+   <h4>Name: ${responseData.treatment.name}</h4>
+      <p>Tooth: ${responseData.treatment.tooth}</p>
+      <p>radiograph: ${responseData.treatment.radiograph}</p>
+      <p>date: ${responseData.treatment.date}</p>
+      <p>ID: ${responseData.treatment._id}</p>
+    <br>
+  `
+
+  // replace whatever was in the books-display element with our bookHtml
+  $('#treatments-display').html(treatmentHtml)
+
+  // reset all forms
+  $('form').trigger('reset')
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -83,6 +105,7 @@ module.exports = {
   onSignOutFailure,
   onChangePasswordSuccess,
   onChangePasswordFailure,
-  onIndexSuccess
+  onIndexSuccess,
+  onShowSuccess
 
 }

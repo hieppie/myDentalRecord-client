@@ -2,8 +2,8 @@
 
 # sh curl-scripts/treatment/show.sh 
 
-TOKEN="713d9b620d00fbf3a588d38330cc5215"
-ID="6255c962c58b892200a41909"
+TOKEN="5cd283f8ee82b0a20c58c69a12bb285c"
+ID="62576f288fd35a0af6b7998d"
 
 API="http://localhost:4741"
 URL_PATH="/treatments"

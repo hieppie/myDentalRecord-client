@@ -12,4 +12,5 @@ $(() => {
   $('#change-pw-form').on('submit', dentalEvents.onChangePassword)
 
   $('#treatment-index').on('click', dentalEvents.onIndexTreatments)
+  $('#treatment-show').on('submit', dentalEvents.onShowTreatment)
 })

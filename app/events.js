@@ -54,8 +54,28 @@ const onChangePassword = function (event) {
 
 const onIndexTreatments = function () {
   dentalApi.index()
+  // pass response back
     .then((response) => dentalUi.onIndexSuccess(response))
     .catch(() => dentalUi.onIndexFailure)
+}
+
+// Show a Tx (a show or retrieve action)
+const onShowTreatment = function (event) {
+  // prevent default submit action to stop the page from refreshing
+  event.preventDefault()
+
+  // create a javascript object from the form (event.target) where the user entered the book id
+  const formData = getFormFields(event.target)
+
+  // make API call for getting one book with the id of the book we grabbed from the form
+  dentalApi.showTreatment(formData.treatment.id)
+
+    // if the API call is successful then pass the data to the onShowSuccess
+    // function
+    .then(dentalUi.onShowSuccess)
+
+  // if the API call fails then run our onError function
+  // .catch(ui.onError)
 }
 
 module.exports = {
@@ -63,6 +83,7 @@ module.exports = {
   onSignIn,
   onSignOut,
   onChangePassword,
-  onIndexTreatments
+  onIndexTreatments,
+  onShowTreatment
 
 }

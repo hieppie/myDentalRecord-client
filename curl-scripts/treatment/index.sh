@@ -2,7 +2,7 @@
 
 # sh curl-scripts/treatment/index.sh 
 
-TOKEN="938cb30715f34ea79b024f905cadc0c1"
+TOKEN="5cd283f8ee82b0a20c58c69a12bb285c"
 
 API="http://localhost:4741"
 URL_PATH="/treatments"

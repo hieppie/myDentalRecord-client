@@ -2,7 +2,7 @@
 
 # sh curl-scripts/treatment/create.sh 
 
-TOKEN="5df5407a373cacc9b97a7649e49d9401"
+TOKEN="6a3515ca41e32a2de7e426b287a3fdab"
 NAME="Root Canal"
 TOOTH="15"
 RADIOGRAPH="Panoramic"

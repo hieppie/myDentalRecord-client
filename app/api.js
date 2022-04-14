@@ -53,12 +53,25 @@ const index = function () {
   })
 }
 
+// make GET request to /books/:id to get a single book
+// getting a single resource is commonly called a show or retrieve action
+const showTreatment = function (id) {
+  return $.ajax({
+    url: config.apiUrl + '/treatments/' + id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   signOut,
   changePassword,
 
-  index
+  index,
+  showTreatment
 
 }
