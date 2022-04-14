@@ -99,15 +99,35 @@
     </div>
   </section>
 
-    <h2>Get record of all treatments</h2>
-    <button id="treatment-index">Get Record</button>
+    <h2>Log a treatment</h2>
+    <form id="treatments-create">
+      <input type="text" name="treatment[name]" placeholder="Treatment name here" required>
+      <input type="text" name="treatment[tooth]" placeholder="Tooth # here" required>
+      <input type="text" name="treatment[radiograph]" placeholder="type of X-rays" required>
+      <input type="text" name="treatment[date]" placeholder="Date of service" required>
+      <button type="submit">Log a treatment</button>
+    </form>
+    <div id="treatments-create-message"></div>
 
-    <h2>Get One Book</h2>
-    <form id="treatment-show">
-      <input type='text' name="treatment[id]" placeholder="Treatment ID here" required>
+    <h2>Get record of all treatments</h2>
+    <button id="treatments-index">Get Record</button>
+
+    <h2>Show a treatment</h2>
+    <form id="treatments-show">
+      <input type="text" name="treatment[id]" placeholder="Treatment ID here" required>
       <button type="submit">Show Treatment</button>
     </form>
 
+    <h2>Update a treatment</h2>
+    <form id="treatments-update">
+      <input type="text" name="treatment[id]" placeholder="Treatment ID here" required>
+      <input type="text" name="treatment[name]" placeholder="Treatment name here" required>
+      <input type="text" name="treatment[tooth]" placeholder="Tooth # here" required>
+      <input type="text" name="treatment[radiograph]" placeholder="type of X-rays" required>
+      <input type="text" name="treatment[date]" placeholder="Date of service" required>
+      <button type="submit">Update treatment</button>
+    </form>
+    <div id="treatments-update-message"></div>
 
     
 

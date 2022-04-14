@@ -1,5 +1,7 @@
 const store = require('./store')
 
+// AUTH
+
 const onSignUpSuccess = function () {
   $('#sign-up-message').html('Signed up successfully!').css('color', 'green')
   $('form').trigger('reset')
@@ -42,22 +44,45 @@ const onChangePasswordFailure = function () {
   $('#change-pw-message').html('Error on change password').css('color', 'red')
 }
 
+// TREATMENTS
+
+const onCreateSuccess = function () {
+  // add success message to content
+  $('#treatments-create-message').html('You created a new book!')
+
+  // we just created a new treatment!
+  // we can add a message to let the users know they should request all of
+  // the treatments again to see the newly created book included
+  $('#treatments-display').html(
+    'Books have created! Click "Get Record" again to see all the books.'
+  )
+
+  // add class for success messaging
+  $('#treatments-create-message').addClass('success')
+
+  // use setTimeout to allow the success message to stay for 5 seconds before
+  // the message is replaced with '' and the 'success' class is removed
+  setTimeout(() => {
+    $('#treatments-create-message').html('')
+    $('#treatments-create-message').removeClass('success')
+  }, 5000)
+
+  // reset all forms
+  $('form').trigger('reset')
+}
+
 const onIndexSuccess = function (responseData) {
   // extract all the Tx from the response's data into a variable
   const treatments = responseData.allTreatments
-
   // log the information we get back from the API so we know how we can
   // interact with it.
   console.log(responseData)
-
-  // create a string that will store the html for all of the books we want to
+  // create a string that will store the html for all of the txs we want to
   // display on the page. Start as an empty string.
   let treatmentsHtml = ''
-
-  // loop through each book from the API
+  // loop through each tx from the API
   treatments.forEach((treatment) => {
-    // add (concatenate) the book html for each book, to the booksHtml string
-    //
+    // add (concatenate) the tx html for each tx, to the treatmentsHtml string
     // when adding the delete button add a data-id attribute, with the id of the
     // button we want to delete
     // add a data-id attribute for our dynamic edit form as well
@@ -70,33 +95,58 @@ const onIndexSuccess = function (responseData) {
     `
   })
 
-  // set the html for all of our books all at once
+  // set the html for all of our txs all at once
   $('#treatments-display').html(treatmentsHtml)
 }
 
 const onShowSuccess = function (responseData) {
+  // extract all the Tx from the response's data into a variable
+  const treatment = responseData.treatment
   // log the information we get back from the API so we know how we can
   // interact with it.
   console.log(responseData)
-
-  // build HTML element with data for one book
+  // build HTML element with data for one tx
   const treatmentHtml = `
-   <h4>Name: ${responseData.treatment.name}</h4>
-      <p>Tooth: ${responseData.treatment.tooth}</p>
-      <p>radiograph: ${responseData.treatment.radiograph}</p>
-      <p>date: ${responseData.treatment.date}</p>
-      <p>ID: ${responseData.treatment._id}</p>
+   <h4>Name: ${treatment.name}</h4>
+      <p>Tooth: ${treatment.tooth}</p>
+      <p>radiograph: ${treatment.radiograph}</p>
+      <p>date: ${treatment.date}</p>
+      <p>ID: ${treatment._id}</p>
     <br>
   `
-
-  // replace whatever was in the books-display element with our bookHtml
+  // replace whatever was in the treatments-display element with our treatmentHtml
   $('#treatments-display').html(treatmentHtml)
+  // reset all forms
+  $('form').trigger('reset')
+}
+
+const onUpdateSuccess = function (responseData) {
+  // add success message to our treatments-update-message element
+  $('#treatments-update-message').html('You successfully updated the book')
+
+  // empty out the treatments-display element in case it was displaying information
+  // about the tx we just updated, replace with a message for the user to get
+  // all the txs again.
+  $('#treatments-display').html(
+    'Treatment updated! Click "Get Record" again to see all the treatments.'
+  )
+
+  // add class for success messaging
+  $('#treaments-update-message').addClass('success')
+
+  // use setTimeout to allow the success message to stay for 5 seconds before
+  // the message is replaced with '' and the 'success' class is removed
+  setTimeout(() => {
+    $('#treatments-update-message').html('')
+    $('#treatments-update-message').removeClass('success')
+  }, 5000)
 
   // reset all forms
   $('form').trigger('reset')
 }
 
 module.exports = {
+  // AUTH
   onSignUpSuccess,
   onSignUpFailure,
   onSignInSuccess,
@@ -105,7 +155,10 @@ module.exports = {
   onSignOutFailure,
   onChangePasswordSuccess,
   onChangePasswordFailure,
-  onIndexSuccess,
-  onShowSuccess
 
+  // TREATMENTS
+  onCreateSuccess,
+  onIndexSuccess,
+  onShowSuccess,
+  onUpdateSuccess
 }

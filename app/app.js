@@ -6,11 +6,15 @@
 const dentalEvents = require('./events')
 
 $(() => {
+  // auth
   $('#sign-up-form').on('submit', dentalEvents.onSignUp)
   $('#sign-in-form').on('submit', dentalEvents.onSignIn)
   $('#sign-out-button').on('click', dentalEvents.onSignOut)
   $('#change-pw-form').on('submit', dentalEvents.onChangePassword)
 
-  $('#treatment-index').on('click', dentalEvents.onIndexTreatments)
-  $('#treatment-show').on('submit', dentalEvents.onShowTreatment)
+  // treatments
+  $('#treatments-index').on('click', dentalEvents.onIndexTreatments)
+  $('#treatments-show').on('submit', dentalEvents.onShowTreatment)
+  $('#treatments-create').on('submit', dentalEvents.onCreateTreatment)
+  $('#treatments-update').on('submit', dentalEvents.onUpdateTreatment)
 })
