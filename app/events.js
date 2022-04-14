@@ -54,7 +54,7 @@ const onChangePassword = function (event) {
 
 const onIndexTreatments = function () {
   dentalApi.index()
-    .then(() => dentalUi.onIndexSuccess)
+    .then((response) => dentalUi.onIndexSuccess(response))
     .catch(() => dentalUi.onIndexFailure)
 }
 

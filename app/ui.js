@@ -44,7 +44,7 @@ const onChangePasswordFailure = function () {
 
 const onIndexSuccess = function (responseData) {
   // extract the books from the response's data into a variable
-  const treatments = responseData.treatments
+  const treatments = responseData.allTreatments
 
   // log the information we get back from the API so we know how we can
   // interact with it.
