@@ -89,9 +89,10 @@ const onIndexSuccess = function (responseData) {
     treatmentsHtml += `
       <h4>Name: ${treatment.name}</h4>
       <p>Tooth: ${treatment.tooth}</p>
-      <p>radiograph: ${treatment.radiograph}</p>
+      <p>radiographs: ${treatment.radiographs}</p>
       <p>date: ${treatment.date}</p>
       <p>ID: ${treatment._id}</p>
+       <p>Owner ID: ${treatment.owner}</p>
     `
   })
 
@@ -109,7 +110,7 @@ const onShowSuccess = function (responseData) {
   const treatmentHtml = `
    <h4>Name: ${treatment.name}</h4>
       <p>Tooth: ${treatment.tooth}</p>
-      <p>radiograph: ${treatment.radiograph}</p>
+      <p>radiographs: ${treatment.radiographs}</p>
       <p>date: ${treatment.date}</p>
       <p>ID: ${treatment._id}</p>
     <br>

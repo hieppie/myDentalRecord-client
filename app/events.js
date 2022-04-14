@@ -100,15 +100,16 @@ const onUpdateTreatment = function (event) {
   event.preventDefault()
 
   // event.target is the update form that was submitted
-  const updateForm = event.target
+  const updateForm = getFormFields(event.target)
 
   // Extract the id from the update form that was submitted's data-id attribute
-  const id = $(updateForm).data('id')
+  const id = updateForm.treatment.id
+  // $(updateForm).data('_id')
 
   // create a javascript object from the form where the user entered the tx information
   const formData = getFormFields(event.target)
 
-  // make API call to update one book with the data we grabbed from the form
+  // make API call to update one tx with the data we grabbed from the form
   dentalApi.updateTreatment(id, formData)
 
     // if the API call is successful then invoke the onUpdateSuccess function

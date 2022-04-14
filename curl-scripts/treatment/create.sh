@@ -5,7 +5,7 @@
 TOKEN="6a3515ca41e32a2de7e426b287a3fdab"
 NAME="Root Canal"
 TOOTH="15"
-RADIOGRAPH="Panoramic"
+RADIOGRAPHS="Panoramic"
 DATE="April 11, 2020"
 
 API="http://localhost:4741"
@@ -20,7 +20,7 @@ curl "${API}${URL_PATH}" \
     "treatment": {
       "name": "'"${NAME}"'",
       "tooth": "'"${TOOTH}"'",
-       "radiograph": "'"${RADIOGRAPH}"'",
+       "radiographs": "'"${RADIOGRAPHS}"'",
       "date": "'"${DATE}"'"
     }
   }'
