@@ -50,7 +50,7 @@ const createTreatment = function (formData) {
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
-    // include the book data that we will use to create the book
+    // include the tx data that we will use to create the tx
     data: formData
   })
 }
@@ -90,6 +90,17 @@ const updateTreatment = function (id, formData) {
   })
 }
 
+const destroyTreatment = function (id) {
+  return $.ajax({
+    url: config.apiUrl + '/treatments/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+    // data: formData
+  })
+}
+
 module.exports = {
   // auth
   signUp,
@@ -101,5 +112,6 @@ module.exports = {
   createTreatment,
   index,
   showTreatment,
-  updateTreatment
+  updateTreatment,
+  destroyTreatment
 }

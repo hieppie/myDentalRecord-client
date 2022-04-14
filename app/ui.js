@@ -48,13 +48,13 @@ const onChangePasswordFailure = function () {
 
 const onCreateSuccess = function () {
   // add success message to content
-  $('#treatments-create-message').html('You created a new book!')
+  $('#treatments-create-message').html('You logged a new treatment!')
 
   // we just created a new treatment!
   // we can add a message to let the users know they should request all of
-  // the treatments again to see the newly created book included
+  // the treatments again to see the newly created tx included
   $('#treatments-display').html(
-    'Books have created! Click "Get Record" again to see all the books.'
+    'Treatment was logged! Click "Get Record" again to see all the treatments.'
   )
 
   // add class for success messaging
@@ -87,12 +87,12 @@ const onIndexSuccess = function (responseData) {
     // button we want to delete
     // add a data-id attribute for our dynamic edit form as well
     treatmentsHtml += `
-      <h4>Name: ${treatment.name}</h4>
-      <p>Tooth: ${treatment.tooth}</p>
-      <p>radiographs: ${treatment.radiographs}</p>
-      <p>date: ${treatment.date}</p>
-      <p>ID: ${treatment._id}</p>
-       <p>Owner ID: ${treatment.owner}</p>
+      <h4>Treatment: ${treatment.name}</h4>
+      <p>Tooth #: ${treatment.tooth}</p>
+      <p>Radiographs: ${treatment.radiographs}</p>
+      <p>Date of Service: ${treatment.date}</p>
+      <p>Treatment ID: ${treatment._id}</p>
+      <p>Patient ID: ${treatment.owner}</p>
     `
   })
 
@@ -108,11 +108,12 @@ const onShowSuccess = function (responseData) {
   console.log(responseData)
   // build HTML element with data for one tx
   const treatmentHtml = `
-   <h4>Name: ${treatment.name}</h4>
-      <p>Tooth: ${treatment.tooth}</p>
-      <p>radiographs: ${treatment.radiographs}</p>
-      <p>date: ${treatment.date}</p>
-      <p>ID: ${treatment._id}</p>
+   <h4>Treatment: ${treatment.name}</h4>
+      <p>Tooth #: ${treatment.tooth}</p>
+      <p>Radiographs: ${treatment.radiographs}</p>
+      <p>Date of service: ${treatment.date}</p>
+      <p>Treatment ID: ${treatment._id}</p>
+      <p>Patient ID: ${treatment.owner}</p>
     <br>
   `
   // replace whatever was in the treatments-display element with our treatmentHtml
@@ -123,7 +124,7 @@ const onShowSuccess = function (responseData) {
 
 const onUpdateSuccess = function (responseData) {
   // add success message to our treatments-update-message element
-  $('#treatments-update-message').html('You successfully updated the book')
+  $('#treatments-update-message').html('You successfully updated the treatment')
 
   // empty out the treatments-display element in case it was displaying information
   // about the tx we just updated, replace with a message for the user to get
@@ -133,13 +134,38 @@ const onUpdateSuccess = function (responseData) {
   )
 
   // add class for success messaging
-  $('#treaments-update-message').addClass('success')
+  $('#treatments-update-message').addClass('success')
 
   // use setTimeout to allow the success message to stay for 5 seconds before
   // the message is replaced with '' and the 'success' class is removed
   setTimeout(() => {
     $('#treatments-update-message').html('')
     $('#treatments-update-message').removeClass('success')
+  }, 5000)
+
+  // reset all forms
+  $('form').trigger('reset')
+}
+
+const onDestroySuccess = function () {
+  // add success message to our treatments-destroy-message element
+  $('#treatments-destroy-message').html('treatment successfully deleted!')
+
+  // empty out the treatments-display element in case it was displaying information
+  // about the tx we just deleted, replace with a message for the user to get
+  // all the txs again.
+  $('#treatments-display').html(
+    'Treatment was deleted! Click "Get Record" again to see all the treatments'
+  )
+
+  // add class for success messaging
+  $('#treatments-destroy-message').addClass('success')
+
+  // use setTimeout to allow the success message to stay for 5 seconds before
+  // the message is replaced with '' and the 'success' class is removed
+  setTimeout(() => {
+    $('#treatments-destroy-message').html('')
+    $('#treatments-destroy-message').removeClass('success')
   }, 5000)
 
   // reset all forms
@@ -161,5 +187,6 @@ module.exports = {
   onCreateSuccess,
   onIndexSuccess,
   onShowSuccess,
-  onUpdateSuccess
+  onUpdateSuccess,
+  onDestroySuccess
 }

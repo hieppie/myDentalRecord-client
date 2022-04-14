@@ -60,7 +60,7 @@ const onChangePassword = function (event) {
 const onCreateTreatment = function (event) {
   // prevent default submit action to stop the page from refreshing
   event.preventDefault()
-  // create a javascript object from the form (event.target) where the user entered the book information
+  // create a javascript object from the form (event.target) where the user entered the tx information
   const formData = getFormFields(event.target)
   // make API call to create one tx with the data we grabbed from the form
   dentalApi
@@ -94,29 +94,50 @@ const onShowTreatment = function (event) {
   // .catch(ui.onError)
 }
 
-// Handle submitting the dynamic update forms
+// UPDATE
 const onUpdateTreatment = function (event) {
   // prevent default submit action to stop the page from refreshing
   event.preventDefault()
-
   // event.target is the update form that was submitted
   const updateForm = getFormFields(event.target)
-
   // Extract the id from the update form that was submitted's data-id attribute
   const id = updateForm.treatment.id
-  // $(updateForm).data('_id')
-
+  //  const id = $(updateForm).data('id') <= this was not working
   // create a javascript object from the form where the user entered the tx information
   const formData = getFormFields(event.target)
-
   // make API call to update one tx with the data we grabbed from the form
   dentalApi.updateTreatment(id, formData)
-
     // if the API call is successful then invoke the onUpdateSuccess function
     .then(dentalUi.onUpdateSuccess)
-
   // // if the API call fails then run our onError function
   // .catch(ui.onError)
+}
+
+// DESTROY
+// Destroy a tx using a form with a text input for the id
+const onDestroyTreatment = function (event) {
+  // prevent default submit action to stop the page from refreshing
+  event.preventDefault()
+
+  const updateForm = getFormFields(event.target)
+  const id = updateForm.treatment.id
+
+  // const form = event.target
+  // const data = getFormFields(form)
+  // console.log(data)
+
+  // // create a javascript object from the form (event.target) where the user entered the tx id
+  // const formData = getFormFields(event.target)
+  // // const id = formData.treatment.id
+
+  // make API call for destroying one tx with id of the tx we grabbed from the form
+  dentalApi.destroyTreatment(id)
+
+    // if the API call is successful then invoke the onDestroySuccess function
+    .then(dentalUi.onDestroySuccess)
+
+  // // if the API call fails then run our onError function
+  // .catch(dentalUi.onError)
 }
 
 module.exports = {
@@ -130,5 +151,6 @@ module.exports = {
   onCreateTreatment,
   onIndexTreatments,
   onShowTreatment,
-  onUpdateTreatment
+  onUpdateTreatment,
+  onDestroyTreatment
 }
