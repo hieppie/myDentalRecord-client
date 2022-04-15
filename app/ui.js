@@ -87,6 +87,7 @@ const onIndexSuccess = function (responseData) {
     // button we want to delete
     // add a data-id attribute for our dynamic edit form as well
     treatmentsHtml += `
+    <section class="index-show">
     <div class="treatment">
       <h4>Treatment: ${treatment.name}</h4>
       <p>Tooth #: ${treatment.tooth}</p>
@@ -94,17 +95,21 @@ const onIndexSuccess = function (responseData) {
       <p>Date of service: ${treatment.date}</p>
       <p>Treatment ID: ${treatment._id}</p>
       <p>Patient ID: ${treatment.owner}</p>
-      <button data-id=${treatment._id}  class="update-toggle" >Edit</button>
+      
       <form id=${treatment._id} class="update-treatment-list hide" data-id=${treatment._id}>
-        <input name="treatment[name]" type="text" placeholder="Treatment name here">
-        <input name="treatment[tooth]" type="text" placeholder="Tooth # here">
-        <input name="treatment[radiographs]" type="text" placeholder="type of X-rays">
-        <input name="treatment[date]" type="date" placeholder="Date of Service">
-        <button type="submit">Submit Update</button>
+        <input class="form-control-lg" name="treatment[name]" type="text" placeholder="Treatment name here">
+        <input class="form-control-lg" name="treatment[tooth]" type="text" placeholder="Tooth # here">
+        <input class="form-control-lg" name="treatment[radiographs]" type="text" placeholder="type of X-rays">
+        <input class="form-control-lg" name="treatment[date]" type="date" placeholder="Date of Service">
+        <button class="btn btn-outline-success" type="submit">Submit Update</button>
       </form>
-
-      <button class="delete-treatment-list" data-id=${treatment._id}>Delete Treatment</button>
+      <div class="divider"></div>
+      <div class="divider"></div>
+      <button data-id=${treatment._id}  class="update-toggle btn btn-outline-warning" >Edit</button>
+      <button class="delete-treatment-list btn btn-outline-danger"" data-id=${treatment._id}>Delete Treatment</button>
     </div>
+    <div class="divider"></div>
+       </section>
     `
   })
 
@@ -119,14 +124,38 @@ const onShowSuccess = function (responseData) {
   // interact with it.
   console.log(responseData)
   // build HTML element with data for one tx
+  // const treatmentHtml = `
+  //  <h4>Treatment: ${treatment.name}</h4>
+  //     <p>Tooth #: ${treatment.tooth}</p>
+  //     <p>Radiographs: ${treatment.radiographs}</p>
+  //     <p>Date of service: ${treatment.date}</p>
+  //     <p>Treatment ID: ${treatment._id}</p>
+  //     <p>Patient ID: ${treatment.owner}</p>
+  //   <br>
+  // `
+
   const treatmentHtml = `
-   <h4>Treatment: ${treatment.name}</h4>
+  <div class="treatment">
+      <h4>Treatment: ${treatment.name}</h4>
       <p>Tooth #: ${treatment.tooth}</p>
       <p>Radiographs: ${treatment.radiographs}</p>
       <p>Date of service: ${treatment.date}</p>
       <p>Treatment ID: ${treatment._id}</p>
       <p>Patient ID: ${treatment.owner}</p>
-    <br>
+      
+      <form id=${treatment._id} class="update-treatment-list hide" data-id=${treatment._id}>
+        <input class="form-control-lg" name="treatment[name]" type="text" placeholder="Treatment name here">
+        <input class="form-control-lg" name="treatment[tooth]" type="text" placeholder="Tooth # here">
+        <input class="form-control-lg" name="treatment[radiographs]" type="text" placeholder="type of X-rays">
+        <input class="form-control-lg" name="treatment[date]" type="date" placeholder="Date of Service">
+        <button class="btn btn-outline-success" type="submit">Submit Update</button>
+      </form>
+      <div class="divider"></div>
+      <div class="divider"></div>
+      <button data-id=${treatment._id}  class="update-toggle btn btn-outline-warning" >Edit</button>
+      <button class="delete-treatment-list btn btn-outline-danger"" data-id=${treatment._id}>Delete Treatment</button>
+    </div>
+    <div class="divider"></div>
   `
   // replace whatever was in the treatments-display element with our treatmentHtml
   $('#treatments-display').html(treatmentHtml)

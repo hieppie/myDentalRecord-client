@@ -22,7 +22,7 @@
     <div class="row">
       <div class="col-12 box ">
         <div class="divider"></div>
-        <h3 id="tictactoes">My Dental Records</h3>
+        <h1 id="tictactoes">My Dental Records</h1>
         <div class="divider"></div>
       </div>
     </div>
@@ -95,28 +95,42 @@
     </div>
   </section>
 
-  <h2>Get record of all treatments</h2>
-  <button class="btn btn-success" id="treatments-index">Get Record</button>
 
+  <div class="col-12 box alt-color">
+  <h2>Get record of all treatments</h2>
+  <div class="divider"></div>
+  <button class="btn btn-success" id="treatments-index">Get Record</button>
+  <div class="divider"></div>
+  </div>
+
+  <div class="col-12 box alt-color">
     <h2>Log a treatment</h2>
+    <div class="divider"></div>
     <form id="treatments-create">
       <input class="form-control-lg" type="text" name="treatment[name]" placeholder="Treatment name here" required>
       <input class="form-control-lg" type="text" name="treatment[tooth]" placeholder="Tooth # here" required>
       <input class="form-control-lg" type="text" name="treatment[radiographs]" placeholder="type of X-rays" required>
       <input class="form-control-lg" type="date" name="treatment[date]" placeholder="Date of service" required>
+      <div class="divider"></div>
       <button class="btn btn-success" type="submit">Submit</button>
     </form>
     <div id="treatments-create-message"></div>
+    </div>
 
     
-
+    <div class="col-12 box alt-color">
     <h2>Show a treatment</h2>
+    <div class="divider"></div>
     <form id="treatments-show">
       <input class="form-control-lg" type="text" name="treatment[id]" placeholder="Treatment ID here" required>
+      <div class="divider"></div>
       <button class="btn btn-success" type="submit">Show Treatment</button>
     </form>
+    </div>
 
-    <h2>Update a treatment</h2>
+    <div class="divider"></div>
+
+    <!-- <h2>Update a treatment</h2>
     <form id="treatments-update">
       <input class="form-control-lg" type="text" name="treatment[id]" placeholder="Treatment ID here" required>
       <input class="form-control-lg" type="text" name="treatment[name]" placeholder="Treatment name here" required>
@@ -124,14 +138,14 @@
       <input class="form-control-lg" type="text" name="treatment[radiographs]" placeholder="type of X-rays" required>
       <input class="form-control-lg" type="date" name="treatment[date]" placeholder="Date of service" required>
       <button class="btn btn-success" type="submit">Update treatment</button>
-    </form>
+    </form> -->
     <div id="treatments-update-message"></div>
 
-    <h2>Delete a Treatment</h2>
+    <!-- <h2>Delete a Treatment</h2>
     <form id="treatments-destroy">
       <input class="form-control-lg" type="text" name="treatment[id]" placeholder="Treatment ID Here" required>
       <button class="btn btn-success" type="submit">Delete Treatment</button>
-    </form>
+    </form> -->
     <div id="treatments-destroy-message"></div>
     
     <section>
