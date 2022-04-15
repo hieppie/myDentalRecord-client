@@ -140,6 +140,43 @@ const onDestroyTreatment = function (event) {
   // .catch(dentalUi.onError)
 }
 
+// ON THE LIST
+const onDeleteListTreatment = function (event) {
+  // event.target will tell us more information about the thing that was clicked
+  const deleteButton = event.target
+
+  // we need to find the id of the book
+  const treatmentId = $(deleteButton).data('id')
+
+  console.log(treatmentId)
+
+  dentalApi
+
+    .destroyTreatment(treatmentId)
+    .then(() => dentalUi.onDestroySuccess())
+    // .catch(() => dentalUi.onDestroyFailure())
+}
+
+const onUpdateListTreatment = function (event) {
+  event.preventDefault()
+  // event.target will tell us more information about the thing that was clicked
+  const updateForm = event.target
+
+  // we need to find the id of the tx
+  const treatmentId = $(updateForm).data('id')
+
+  // use getFormFields to get the data from the form
+  const data = getFormFields(updateForm)
+  console.log(data)
+
+  console.log(treatmentId)
+
+  dentalApi
+    .updateTreatment(treatmentId, data)
+    .then(() => dentalUi.onUpdateSuccess())
+    // .catch(() => dentalUi.onUpdateFailure())
+}
+
 module.exports = {
   // AUTH
   onSignUp,
@@ -152,5 +189,9 @@ module.exports = {
   onIndexTreatments,
   onShowTreatment,
   onUpdateTreatment,
-  onDestroyTreatment
+  onDestroyTreatment,
+
+  // ON THE LIST
+  onDeleteListTreatment,
+  onUpdateListTreatment
 }

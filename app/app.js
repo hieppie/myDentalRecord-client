@@ -18,4 +18,8 @@ $(() => {
   $('#treatments-create').on('submit', dentalEvents.onCreateTreatment)
   $('#treatments-update').on('submit', dentalEvents.onUpdateTreatment)
   $('#treatments-destroy').on('submit', dentalEvents.onDestroyTreatment)
+
+  // on the list
+  $('#treatments-display').on('click', '.delete-treatment-list', dentalEvents.onDeleteListTreatment)
+  $('#treatments-display').on('submit', '.update-treatment-list', dentalEvents.onUpdateListTreatment)
 })

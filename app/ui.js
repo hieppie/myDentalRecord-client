@@ -87,12 +87,22 @@ const onIndexSuccess = function (responseData) {
     // button we want to delete
     // add a data-id attribute for our dynamic edit form as well
     treatmentsHtml += `
+    <div>
       <h4>Treatment: ${treatment.name}</h4>
       <p>Tooth #: ${treatment.tooth}</p>
       <p>Radiographs: ${treatment.radiographs}</p>
-      <p>Date of Service: ${treatment.date}</p>
+      <p>Date of service: ${treatment.date}</p>
       <p>Treatment ID: ${treatment._id}</p>
       <p>Patient ID: ${treatment.owner}</p>
+      <form class="update-treatment-list" data-id=${treatment._id}>
+        <input name="treatment[name]" type="text" placeholder="Treatment name here">
+        <input name="treatment[tooth]" type="text" placeholder="Tooth # here">
+        <input name="treatment[radiographs]" type="text" placeholder="type of X-rays">
+        <input name="treatment[date]" type="date" placeholder="Date of Service">
+        <button type="submit">Update Treatment</button>
+      </form>
+      <button class="delete-treatment-list" data-id=${treatment._id}>Delete Treatment</button>
+    </div>
     `
   })
 
