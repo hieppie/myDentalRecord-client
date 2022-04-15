@@ -9,7 +9,7 @@
 
 body {
     margin: 40px;
-    background: lightblue url("img_tree.gif") no-repeat fixed center;
+    background: rgb(134, 195, 216) 
 }
 
 #success-message {
@@ -83,4 +83,10 @@ button,
 #sign-up-message {
 font-family: 'Roboto',
 sans-serif;
+}
+
+
+
+.hide {
+    display: none
 }

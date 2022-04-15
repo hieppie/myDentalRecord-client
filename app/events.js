@@ -177,6 +177,14 @@ const onUpdateListTreatment = function (event) {
     // .catch(() => dentalUi.onUpdateFailure())
 }
 
+const onUpdateToggle = function (event) {
+  const id = event.target.getAttribute('data-id')
+  console.log(id)
+
+  $(`#${id}`).toggleClass('hide')
+  console.log($('.update-treatment-list').html())
+}
+
 module.exports = {
   // AUTH
   onSignUp,
@@ -193,5 +201,7 @@ module.exports = {
 
   // ON THE LIST
   onDeleteListTreatment,
-  onUpdateListTreatment
+  onUpdateListTreatment,
+
+  onUpdateToggle
 }

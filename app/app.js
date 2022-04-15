@@ -5,6 +5,22 @@
 // require('./example')
 const dentalEvents = require('./events')
 
+// const toggleTreatmentForm = function () {
+//   const form =
+//   $(this)
+//     .closest('.treatment')
+//     .find('.update-treatment-form')
+
+//   form.toggleClass('hidden')
+//   if (form.hasClass('hidden')) {
+//     $(this).html('Click to show update form')
+//   } else {
+//     $(this).html('Click to hide update form')
+//   }
+//   console.log($(this))
+//   console.log($(this).closest('.treatment'))
+// }
+
 $(() => {
   // auth
   $('#sign-up-form').on('submit', dentalEvents.onSignUp)
@@ -21,5 +37,14 @@ $(() => {
 
   // on the list
   $('#treatments-display').on('click', '.delete-treatment-list', dentalEvents.onDeleteListTreatment)
+  
   $('#treatments-display').on('submit', '.update-treatment-list', dentalEvents.onUpdateListTreatment)
+
+  // update on list button toggle form
+
+  $('#treatments-display').on('click', '.update-toggle', dentalEvents.onUpdateToggle)
+
+  // $('.update-toggle').on('click', function () {
+  //   $('.update-treatment-list').toggle()
+  // })
 })
