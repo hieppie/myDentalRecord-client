@@ -89,7 +89,7 @@ const onIndexSuccess = function (responseData) {
     treatmentsHtml += `
     <section class="index-show">
     <div class="treatment">
-      <h4>Treatment: ${treatment.name}</h4>
+      <h2>Treatment: ${treatment.name}</h2>
       <p>Tooth #: ${treatment.tooth}</p>
       <p>Radiographs: ${treatment.radiographs}</p>
       <p>Date of service: ${treatment.date}</p>
@@ -101,12 +101,12 @@ const onIndexSuccess = function (responseData) {
         <input class="form-control-lg" name="treatment[tooth]" type="text" placeholder="Tooth # here">
         <input class="form-control-lg" name="treatment[radiographs]" type="text" placeholder="type of X-rays">
         <input class="form-control-lg" name="treatment[date]" type="date" placeholder="Date of Service">
-        <button class="btn btn-outline-success" type="submit">Submit Update</button>
+        <button class="btn btn-outline-success list-button" type="submit">Submit Update</button>
       </form>
       <div class="divider"></div>
       <div class="divider"></div>
-      <button data-id=${treatment._id}  class="update-toggle btn btn-outline-warning" >Edit</button>
-      <button class="delete-treatment-list btn btn-outline-danger"" data-id=${treatment._id}>Delete Treatment</button>
+      <button data-id=${treatment._id}  class="update-toggle btn btn-outline-warning list-button" >Update</button>
+      <button class="delete-treatment-list btn btn-outline-danger list-button" data-id=${treatment._id}>Delete Treatment</button>
     </div>
     <div class="divider"></div>
        </section>
@@ -135,7 +135,8 @@ const onShowSuccess = function (responseData) {
   // `
 
   const treatmentHtml = `
-  <div class="treatment">
+  <section class="index-show">
+    <div class="treatment">
       <h4>Treatment: ${treatment.name}</h4>
       <p>Tooth #: ${treatment.tooth}</p>
       <p>Radiographs: ${treatment.radiographs}</p>
@@ -156,6 +157,7 @@ const onShowSuccess = function (responseData) {
       <button class="delete-treatment-list btn btn-outline-danger"" data-id=${treatment._id}>Delete Treatment</button>
     </div>
     <div class="divider"></div>
+  </section>
   `
   // replace whatever was in the treatments-display element with our treatmentHtml
   $('#treatments-display').html(treatmentHtml)
