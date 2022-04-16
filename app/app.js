@@ -47,4 +47,7 @@ $(() => {
   // $('.update-toggle').on('click', function () {
   //   $('.update-treatment-list').toggle()
   // })
+
+  // HIDE/SHOW
+  $('#show-treatment-div, #sign-out-div, #change-pw-div').hide()
 })

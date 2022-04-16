@@ -145,7 +145,7 @@ const onDeleteListTreatment = function (event) {
   // event.target will tell us more information about the thing that was clicked
   const deleteButton = event.target
 
-  // we need to find the id of the book
+  // we need to find the id of the tx
   const treatmentId = $(deleteButton).data('id')
 
   console.log(treatmentId)
