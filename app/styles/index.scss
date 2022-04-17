@@ -2,18 +2,28 @@
 
 @import '~bootstrap/scss/bootstrap';
 
+// html {
+//     min-height: 100%;
+//     background-image: url(image.jpg);
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     background-position: center center;
+// }
+
 #my-dental-records {
     color: rgb(239, 236, 14)
 }
 
 body {
+    min-height: 100%;
     background-color: #e5e5f7;
     opacity: 0.8;
     background-image: url("https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2080&q=80");
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size:cover;
     font-family: 'Fjord One',
     serif;
+    
 }
 
 #success-message {
@@ -95,14 +105,14 @@ h2 {
 
 .treatment-name {
     font-size: 2rem;
-    color:#4f1818
+    color:#330b0b
 }
 
 p {
     font-family: 'Fjord One',
     serif;
     font-size: 1.3rem;
-    color: #713535;
+    color: #421818;
 }
 
 input:hover {

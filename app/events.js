@@ -19,7 +19,7 @@ const onSignUp = function (event) {
   // api call
   dentalApi.signUp(data)
     .then(() => dentalUi.onSignUpSuccess())
-    .catch(() => dentalUi.onSignUpFailure)
+    .catch(() => dentalUi.onSignUpFailure())
 }
 
 const onSignIn = function (event) {

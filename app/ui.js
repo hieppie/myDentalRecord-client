@@ -5,55 +5,71 @@ const store = require('./store')
 const onSignUpSuccess = function () {
   $('#sign-up-message').html('Signed up successfully!').css('color', 'green')
   $('form').trigger('reset')
+  $('#sign-up-message').show()
+  $('#sign-in-message, #sign-out-message, #change-pw-message').hide()
 }
 
 const onSignUpFailure = function () {
   $('#sign-up-message').html('Error: Can not sign up').css('color', 'red')
-  $('form').trigger('reset')
+
+  $('#sign-up-message').show()
+  $('#sign-in-message, #sign-out-message, #change-pw-message').hide()
 }
 
 const onSignInSuccess = function (response) {
   $('form').trigger('reset')
   $('#sign-in-message').html('You are signed in').css('color', 'green').show()
+
   console.log(response)
   // store data from the response in mt store object. store this which need token from user to change pw or log out
   store.user = response.user
   $('#show-treatment-div, #sign-out-div, #change-pw-div').show()
-  $('#sign-in-div, #sign-up-div').hide()
+  $('#sign-in-div, #sign-up-div, #sign-up-message, #sign-out-message, #change-pw-message').hide()
 }
 
 const onSignInFailure = function () {
   // $('#success-message').hide()
-  $('#sign-in-message').html('Error: can not sign in').css('color', 'red')
+  $('#sign-in-message').html('Error: Can not sign in').css('color', 'red')
+  $('#sign-in-message').show()
+  $('#sign-up-message, #sign-out-message, #change-pw-message'
+  ).hide()
 }
 
 const onSignOutSuccess = function () {
   $('form').trigger('reset')
-  $('#sign-out-message').html('You successfully signed out').css('color', 'white')
-  $('#sign-in-div, #sign-up-div').show()
-  $('#show-treatment-div, #sign-out-div, #change-pw-div').hide()
+  $('#sign-out-message').html('You are signed out').css('color', 'white')
+  $('#sign-in-div, #sign-up-div, #sign-out-message').show()
+  $('#show-treatment-div, #sign-out-div, #change-pw-div, #sign-in-message, #change-pw-message, .index-show').hide()
 }
 
 const onSignOutFailure = function () {
   $('#sign-out-message').html('Something Went Wrong').css('color', 'white')
+  $('#sign-out-message').show()
 }
 
 const onChangePasswordSuccess = function () {
   $('#change-pw-message')
-    .html('You successfully changed your password. Sign in with new password')
+    .html('Password Changed. Sign in with new password')
+    .css('color', 'green')
     .css('color', 'white')
   $('form').trigger('reset')
-  $('#sign-in-div, #sign-up-div').show()
-  $('#show-treatment-div, #sign-out-div, #change-pw-div').hide()
+  $('#sign-in-div, #sign-up-div, #change-pw-message').show()
+  $('#show-treatment-div, #sign-out-div, #change-pw-div, #sign-in-message, #sign-out-message, .index-show').hide()
+  $('form').trigger('reset')
 }
 
 const onChangePasswordFailure = function () {
-  $('#change-pw-message').html('Error on change password').css('color', 'red')
+  $('#change-pw-message').html('Error: Can not change password').css('color', 'red')
+  $('#sign-in-div, #sign-up-div, #change-pw-message').show()
+  $('#sign-in-message, #sign-out-message, #sign-in-div, #sign-up-div'
+  ).hide()
+  $('form').trigger('reset')
 }
 
 // TREATMENTS
 
 const onCreateSuccess = function () {
+  $('#sign-in-message, #change-pw-message').hide()
   // add success message to content
   $('#treatments-create-message').html('Treatment Logged')
 
@@ -67,7 +83,7 @@ const onCreateSuccess = function () {
   // add class for success messaging
   $('#treatments-create-message').addClass('success')
 
-  // use setTimeout to allow the success message to stay for 5 seconds before
+  // use setTimeout to allow the success message to stay for 3 seconds before
   // the message is replaced with '' and the 'success' class is removed
   setTimeout(() => {
     $('#treatments-create-message').html('')
@@ -79,6 +95,7 @@ const onCreateSuccess = function () {
 }
 
 const onIndexSuccess = function (responseData) {
+  $('#sign-in-message, #change-pw-message').hide()
   // extract all the Tx from the response's data into a variable
   const treatments = responseData.allTreatments
   // log the information we get back from the API so we know how we can
@@ -108,11 +125,11 @@ const onIndexSuccess = function (responseData) {
         <input class="form-control-lg" name="treatment[tooth]" type="text" placeholder="Tooth #">
         <input class="form-control-lg" name="treatment[radiographs]" type="text" placeholder="Type of X-rays">
         <input class="form-control-lg" name="treatment[date]" type="date" placeholder="Date of Service">
-        <button class="btn btn-outline-success list-button" type="submit">Submit Update</button>
+        <button class="btn btn-outline-primary list-button" type="submit">Submit Update</button>
       </form>
       <div class="divider"></div>
       <div class="divider"></div>
-      <button data-id=${treatment._id}  class="update-toggle btn btn-outline-warning list-button" >Update</button>
+      <button data-id=${treatment._id}  class="update-toggle btn btn-outline-primary list-button" >Update</button>
       <button class="delete-treatment-list btn btn-outline-danger list-button" data-id=${treatment._id}>Delete Treatment</button>
     </div>
     <div class="divider"></div>
@@ -125,6 +142,7 @@ const onIndexSuccess = function (responseData) {
 }
 
 const onShowSuccess = function (responseData) {
+  $('#sign-in-message, #change-pw-message').hide()
   // extract all the Tx from the response's data into a variable
   const treatment = responseData.treatment
   // log the information we get back from the API so we know how we can
@@ -156,11 +174,11 @@ const onShowSuccess = function (responseData) {
         <input class="form-control-lg" name="treatment[tooth]" type="text" placeholder="Tooth #">
         <input class="form-control-lg" name="treatment[radiographs]" type="text" placeholder="Type of X-rays">
         <input class="form-control-lg" name="treatment[date]" type="date" placeholder="Date of Service">
-        <button class="btn btn-outline-success list-button" type="submit">Submit Update</button>
+        <button class="btn btn-outline-primary list-button" type="submit">Submit Update</button>
       </form>
       <div class="divider"></div>
       <div class="divider"></div>
-      <button data-id=${treatment._id}  class="update-toggle btn btn-outline-warning list-button" >Edit</button>
+      <button data-id=${treatment._id}  class="update-toggle btn btn-outline-primary list-button" >Edit</button>
       <button class="delete-treatment-list btn btn-outline-danger list-button"" data-id=${treatment._id}>Delete Treatment</button>
     </div>
     <div class="divider"></div>
@@ -186,7 +204,7 @@ const onUpdateSuccess = function (responseData) {
   // add class for success messaging
   $('#treatments-update-message').addClass('success')
 
-  // use setTimeout to allow the success message to stay for 5 seconds before
+  // use setTimeout to allow the success message to stay for 3 seconds before
   // the message is replaced with '' and the 'success' class is removed
   setTimeout(() => {
     $('#treatments-update-message').html('')
@@ -211,7 +229,7 @@ const onDestroySuccess = function () {
   // add class for success messaging
   $('#treatments-destroy-message').addClass('success')
 
-  // use setTimeout to allow the success message to stay for 5 seconds before
+  // use setTimeout to allow the success message to stay for 3 seconds before
   // the message is replaced with '' and the 'success' class is removed
   setTimeout(() => {
     $('#treatments-destroy-message').html('')
