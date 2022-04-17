@@ -40,6 +40,10 @@ const onSignOutSuccess = function () {
   $('#sign-out-message').html('You are signed out').css('color', 'white')
   $('#sign-in-div, #sign-up-div, #sign-out-message').show()
   $('#show-treatment-div, #sign-out-div, #change-pw-div, #sign-in-message, #change-pw-message, .index-show').hide()
+
+  setTimeout(() => {
+    $('#sign-out-message').html('')
+  }, 3000)
 }
 
 const onSignOutFailure = function () {
@@ -111,7 +115,7 @@ const onIndexSuccess = function (responseData) {
     // button we want to delete
     // add a data-id attribute for our dynamic edit form as well
     treatmentsHtml += `
-    <section class="index-show">
+    <div class="index-show">
     <div class="treatment">
       <h2 class="treatment-name">${treatment.name}</h2>
       <p>Tooth #: ${treatment.tooth}</p>
@@ -133,7 +137,7 @@ const onIndexSuccess = function (responseData) {
       <button class="delete-treatment-list btn btn-outline-danger list-button" data-id=${treatment._id}>Delete Treatment</button>
     </div>
     <div class="divider"></div>
-       </section>
+       </div>
     `
   })
 
@@ -160,7 +164,7 @@ const onShowSuccess = function (responseData) {
   // `
 
   const treatmentHtml = `
-  <section class="index-show">
+  <div class="index-show">
     <div class="treatment">
       <h2 class="treatment-name" >${treatment.name}</h2>
       <p>Tooth #: ${treatment.tooth}</p>
@@ -182,7 +186,7 @@ const onShowSuccess = function (responseData) {
       <button class="delete-treatment-list btn btn-outline-danger list-button"" data-id=${treatment._id}>Delete Treatment</button>
     </div>
     <div class="divider"></div>
-  </section>
+  </div>
   `
   // replace whatever was in the treatments-display element with our treatmentHtml
   $('#treatments-display').html(treatmentHtml)
@@ -201,14 +205,10 @@ const onUpdateSuccess = function (responseData) {
     ''
   )
 
-  // add class for success messaging
-  $('#treatments-update-message').addClass('success')
-
   // use setTimeout to allow the success message to stay for 3 seconds before
   // the message is replaced with '' and the 'success' class is removed
   setTimeout(() => {
     $('#treatments-update-message').html('')
-    $('#treatments-update-message').removeClass('success')
   }, 3000)
 
   // reset all forms
@@ -226,14 +226,10 @@ const onDestroySuccess = function () {
     ''
   )
 
-  // add class for success messaging
-  $('#treatments-destroy-message').addClass('success')
-
   // use setTimeout to allow the success message to stay for 3 seconds before
   // the message is replaced with '' and the 'success' class is removed
   setTimeout(() => {
     $('#treatments-destroy-message').html('')
-    $('#treatments-destroy-message').removeClass('success')
   }, 3000)
 
   // reset all forms
