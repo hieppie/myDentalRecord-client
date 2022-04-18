@@ -25,7 +25,7 @@ body {
     min-height: 100%;
     background-color: #e5e5f7;
     opacity: 0.9;
-    background: url("https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2080&q=80") center fixed;
+    background: url("https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2080&q=80") no-repeat center center fixed;
     background-repeat: no-repeat;
     background-size:cover;
     font-family: 'Fjord One',
@@ -58,7 +58,7 @@ body {
 }
 
 #show-treatment-div{
-    margin: 10px 150px;
+    margin: 10px 250px;
 }
 .alt-color {
     background-color: rgb(89, 160, 188);
@@ -97,8 +97,8 @@ serif;
         border: 5px solid rgb(189, 91, 91);
         border-radius: 20px;
         padding: 10px;  
-        margin-top: 5px;
-        margin-bottom: 5 px;
+        margin-top: 10px;
+        margin-bottom: 10px;
         box-shadow: 5px 10px 5px 0px rgba(89, 87, 87, 0.75)
 }
 
@@ -127,4 +127,9 @@ input:hover {
 
 .list-button {
 margin: 8px;
+}
+
+#each-treatment{
+    margin-left: 500px;
+    margin-right: 500px;
 }
