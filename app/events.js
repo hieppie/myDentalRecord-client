@@ -152,7 +152,6 @@ const onDeleteListTreatment = function (event) {
   // console.log(treatmentId)
 
   dentalApi
-
     .destroyTreatment(treatmentId)
     .then(() => dentalUi.onDestroySuccess())
     // .catch(() => dentalUi.onDestroyFailure())
@@ -203,6 +202,5 @@ module.exports = {
   // ON THE LIST
   onDeleteListTreatment,
   onUpdateListTreatment,
-
   onUpdateToggle
 }

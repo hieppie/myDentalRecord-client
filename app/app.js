@@ -37,7 +37,6 @@ $(() => {
 
   // on the list
   $('#treatments-display').on('click', '.delete-treatment-list', dentalEvents.onDeleteListTreatment)
-
   $('#treatments-display').on('submit', '.update-treatment-list', dentalEvents.onUpdateListTreatment)
 
   // update on list button toggle form

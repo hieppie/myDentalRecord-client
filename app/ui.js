@@ -218,8 +218,8 @@ const onShowSuccess = function (responseData) {
 
 const onShowFailure = function (responseData) {
   $('#treatments-show-message')
-		.html('Error finding treatment')
-		.css('color', 'red')
+    .html('Error finding treatment')
+    .css('color', 'red')
   $('#treatments-create-message, #treatments-destroy-message, #treatments-update-message'
   ).hide()
   $('#treatments-show-message').show()
@@ -227,11 +227,17 @@ const onShowFailure = function (responseData) {
   setTimeout(() => {
     $('#treatments-show-message').html('')
   }, 3000)
+
+  $('form').trigger('reset')
 }
 
 const onUpdateSuccess = function (responseData) {
   // add success message to our treatments-update-message element
   $('#treatments-update-message').html('Treatment Updated. Click GET RECORD to show')
+  $('#treatments-update-message').show()
+  $(
+    '#treatments-create-message, #treatments-destroy-message, #treatments-delete-message'
+  ).hide()
 
   // empty out the treatments-display element in case it was displaying information
   // about the tx we just updated, replace with a message for the user to get
@@ -251,6 +257,11 @@ const onUpdateSuccess = function (responseData) {
 const onDestroySuccess = function () {
   // add success message to our treatments-destroy-message element
   $('#treatments-destroy-message').html('Treatment Deleted')
+  $('#treatments-destroy-message').show()
+
+  $(
+    '#treatments-create-message, #treatments-show-message, #treatments-update-message'
+  ).hide()
 
   // empty out the treatments-display element in case it was displaying information
   // about the tx we just deleted, replace with a message for the user to get
