@@ -9,12 +9,12 @@ const { apiUrl } = require('./config')
 const onSignUp = function (event) {
   // prevent refresh after submitting
   event.preventDefault()
-  console.log('logging sign up button')
+  // console.log('logging sign up button')
 
   // get data from form using getFormFields
   const form = event.target
   const data = getFormFields(form)
-  console.log(data)
+  // console.log(data)
 
   // api call
   dentalApi.signUp(data)
@@ -24,11 +24,11 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   event.preventDefault()
-  console.log('logging sign in button')
+  // console.log('logging sign in button')
 
   const form = event.target
   const data = getFormFields(form)
-  console.log(data)
+  // console.log(data)
 
   dentalApi.signIn(data)
     .then((response) => dentalUi.onSignInSuccess(response))
@@ -36,7 +36,7 @@ const onSignIn = function (event) {
 }
 
 const onSignOut = function () {
-  console.log('logging sign out button')
+  // console.log('logging sign out button')
   dentalApi.signOut()
     .then((response) => dentalUi.onSignOutSuccess(response))
     .catch(() => dentalUi.onSignOutFailure())
@@ -44,7 +44,7 @@ const onSignOut = function () {
 
 const onChangePassword = function (event) {
   event.preventDefault()
-  console.log('logging change pw button')
+  // console.log('logging change pw button')
 
   const form = event.target
   const data = getFormFields(form)
@@ -148,7 +148,7 @@ const onDeleteListTreatment = function (event) {
   // we need to find the id of the tx
   const treatmentId = $(deleteButton).data('id')
 
-  console.log(treatmentId)
+  // console.log(treatmentId)
 
   dentalApi
 
@@ -167,9 +167,9 @@ const onUpdateListTreatment = function (event) {
 
   // use getFormFields to get the data from the form
   const data = getFormFields(updateForm)
-  console.log(data)
+  // console.log(data)
 
-  console.log(treatmentId)
+  // console.log(treatmentId)
 
   dentalApi
     .updateTreatment(treatmentId, data)
@@ -179,10 +179,10 @@ const onUpdateListTreatment = function (event) {
 
 const onUpdateToggle = function (event) {
   const id = event.target.getAttribute('data-id')
-  console.log(id)
+  // console.log(id)
 
   $(`#${id}`).toggleClass('hide')
-  console.log($('.update-treatment-list').html())
+  // console.log($('.update-treatment-list').html())
 }
 
 module.exports = {

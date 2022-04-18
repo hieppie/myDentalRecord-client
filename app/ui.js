@@ -7,6 +7,10 @@ const onSignUpSuccess = function () {
   $('form').trigger('reset')
   $('#sign-up-message').show()
   $('#sign-in-message, #sign-out-message, #change-pw-message').hide()
+
+  setTimeout(() => {
+    $('#sign-up-message').html('')
+  }, 3000)
 }
 
 const onSignUpFailure = function () {
@@ -14,17 +18,25 @@ const onSignUpFailure = function () {
 
   $('#sign-up-message').show()
   $('#sign-in-message, #sign-out-message, #change-pw-message').hide()
+
+  setTimeout(() => {
+    $('#sign-up-message').html('')
+  }, 3000)
 }
 
 const onSignInSuccess = function (response) {
   $('form').trigger('reset')
   $('#sign-in-message').html('You are signed in').css('color', 'green').show()
 
-  console.log(response)
+  // console.log(response)
   // store data from the response in mt store object. store this which need token from user to change pw or log out
   store.user = response.user
   $('#show-treatment-div, #sign-out-div, #change-pw-div').show()
   $('#sign-in-div, #sign-up-div, #sign-up-message, #sign-out-message, #change-pw-message').hide()
+
+  setTimeout(() => {
+    $('#sign-in-message').html('')
+  }, 3000)
 }
 
 const onSignInFailure = function () {
@@ -33,6 +45,10 @@ const onSignInFailure = function () {
   $('#sign-in-message').show()
   $('#sign-up-message, #sign-out-message, #change-pw-message'
   ).hide()
+
+  setTimeout(() => {
+    $('#sign-in-message').html('')
+  }, 3000)
 }
 
 const onSignOutSuccess = function () {
@@ -49,6 +65,10 @@ const onSignOutSuccess = function () {
 const onSignOutFailure = function () {
   $('#sign-out-message').html('Something Went Wrong').css('color', 'white')
   $('#sign-out-message').show()
+
+  setTimeout(() => {
+    $('#sign-out-message').html('')
+  }, 3000)
 }
 
 const onChangePasswordSuccess = function () {
@@ -60,6 +80,10 @@ const onChangePasswordSuccess = function () {
   $('#sign-in-div, #sign-up-div, #change-pw-message').show()
   $('#show-treatment-div, #sign-out-div, #change-pw-div, #sign-in-message, #sign-out-message, .index-show').hide()
   $('form').trigger('reset')
+
+  setTimeout(() => {
+    $('#change-pw-message').html('')
+  }, 3000)
 }
 
 const onChangePasswordFailure = function () {
@@ -68,6 +92,10 @@ const onChangePasswordFailure = function () {
   $('#sign-in-message, #sign-out-message, #sign-in-div, #sign-up-div'
   ).hide()
   $('form').trigger('reset')
+
+  setTimeout(() => {
+    $('#change-pw-message').html('')
+  }, 3000)
 }
 
 // TREATMENTS
@@ -75,23 +103,17 @@ const onChangePasswordFailure = function () {
 const onCreateSuccess = function () {
   $('#sign-in-message, #change-pw-message').hide()
   // add success message to content
-  $('#treatments-create-message').html('Treatment Logged')
+  $('#treatments-create-message').html('Treatment Logged. Click GET RECORD to show')
 
   // we just created a new treatment!
   // we can add a message to let the users know they should request all of
   // the treatments again to see the newly created tx included
-  $('#treatments-display').html(
-    ''
-  )
-
-  // add class for success messaging
-  $('#treatments-create-message').addClass('success')
+  $('#treatments-display').html('')
 
   // use setTimeout to allow the success message to stay for 3 seconds before
   // the message is replaced with '' and the 'success' class is removed
   setTimeout(() => {
     $('#treatments-create-message').html('')
-    $('#treatments-create-message').removeClass('success')
   }, 3000)
 
   // reset all forms
@@ -104,7 +126,7 @@ const onIndexSuccess = function (responseData) {
   const treatments = responseData.allTreatments
   // log the information we get back from the API so we know how we can
   // interact with it.
-  console.log(responseData)
+  // console.log(responseData)
   // create a string that will store the html for all of the txs we want to
   // display on the page. Start as an empty string.
   let treatmentsHtml = ''
@@ -151,7 +173,7 @@ const onShowSuccess = function (responseData) {
   const treatment = responseData.treatment
   // log the information we get back from the API so we know how we can
   // interact with it.
-  console.log(responseData)
+  // console.log(responseData)
   // build HTML element with data for one tx
   // const treatmentHtml = `
   //  <h4>Treatment: ${treatment.name}</h4>
@@ -196,14 +218,12 @@ const onShowSuccess = function (responseData) {
 
 const onUpdateSuccess = function (responseData) {
   // add success message to our treatments-update-message element
-  $('#treatments-update-message').html('Treatment Updated')
+  $('#treatments-update-message').html('Treatment Updated. Click GET RECORD to show')
 
   // empty out the treatments-display element in case it was displaying information
   // about the tx we just updated, replace with a message for the user to get
   // all the txs again.
-  $('#treatments-display').html(
-    ''
-  )
+  $('#treatments-display').html('')
 
   // use setTimeout to allow the success message to stay for 3 seconds before
   // the message is replaced with '' and the 'success' class is removed
@@ -222,9 +242,7 @@ const onDestroySuccess = function () {
   // empty out the treatments-display element in case it was displaying information
   // about the tx we just deleted, replace with a message for the user to get
   // all the txs again.
-  $('#treatments-display').html(
-    ''
-  )
+  $('#treatments-display').html('')
 
   // use setTimeout to allow the success message to stay for 3 seconds before
   // the message is replaced with '' and the 'success' class is removed
