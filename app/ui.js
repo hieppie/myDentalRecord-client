@@ -204,7 +204,7 @@ const onShowSuccess = function (responseData) {
       </form>
       <div class="divider"></div>
       <div class="divider"></div>
-      <button data-id=${treatment._id}  class="update-toggle btn btn-outline-primary list-button" >Edit</button>
+      <button data-id=${treatment._id}  class="update-toggle btn btn-outline-primary list-button" >Update</button>
       <button class="delete-treatment-list btn btn-outline-danger list-button"" data-id=${treatment._id}>Delete Treatment</button>
     </div>
     <div class="divider"></div>
