@@ -1,0 +1,122 @@
+@import '~bootstrap/scss/bootstrap';
+
+@import '~bootstrap/scss/bootstrap';
+
+
+
+#my-dental-records {
+    color: rgb(239, 236, 14)
+}
+
+body {
+    min-height: 100%;
+    background-color: #e5e5f7;
+    opacity: 0.9;
+    background: url("https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2080&q=80") no-repeat center center fixed;
+    background-repeat: no-repeat;
+    background-size:cover;
+    font-family: 'Fjord One',
+    serif;
+}
+
+#success-message {
+    color: green
+}
+
+#error-message {
+    color: red
+}
+
+.box {
+
+    align-items: center;
+    background-color: rgb(189, 91, 91);
+    border: 1px solid rgb(144, 104, 50);
+    color: white;
+    display: flex;
+    font-family: 'Fjord One',
+    serif;
+    height: 80px;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 5px 10px 5px 0px rgba(89, 87, 87, 0.75);
+    padding-top: 1px;
+}
+
+#show-treatment-div{
+    margin: 10px 250px;
+}
+.alt-color {
+    background-color: rgb(89, 160, 188);
+}
+
+.divider {
+    width: 15px;
+    height: auto;
+    display: inline-block;
+}
+
+.btn {
+    border-radius: 10px;
+    text-transform: uppercase;
+    box-shadow: 5px 8px 5px 0px rgba(51, 49, 49, 0.75);
+}
+
+h3,
+button,
+#sign-in-message,
+#sign-out-message,
+#sign-up-message {
+font-family: 'Fjord One',
+serif;
+}
+
+
+.hide {
+    display: none
+}
+
+.index-show {
+    background-color: rgb(139, 189, 208);
+        margin: auto;
+        width: 60%;
+        border: 5px solid rgb(189, 91, 91);
+        border-radius: 20px;
+        padding: 10px;  
+        margin-top: 10px;
+        margin-bottom: 10px;
+        box-shadow: 5px 10px 5px 0px rgba(89, 87, 87, 0.75)
+}
+
+h2 {
+    color: white ;
+    font-family: 'Fjord One',
+    serif;
+    font-weight: bold;
+}
+
+.treatment-name {
+    font-size: 2rem;
+    color:#330b0b
+}
+
+p {
+    font-family: 'Fjord One',
+    serif;
+    font-size: 1.3rem;
+    color: #421818;
+}
+
+input:hover {
+    background-color: rgb(232, 232, 185);
+}
+
+.list-button {
+margin: 8px;
+}
+
+#each-treatment{
+    margin-left: 500px;
+    margin-right: 500px;
+}

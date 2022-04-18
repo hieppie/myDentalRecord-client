@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fjord+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="bg" ></div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12 box ">
+        <div class="divider"></div>
+        <h1 id="my-dental-records">My Dental Records</h1>
+        <div class="divider"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- created a section for all username related and put each under different section -->
+  <section id="username">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 box alt-color" id="sign-up-div">
+          <h3>Not a patient?</h3>
+          <div class="divider"></div>
+          <form id="sign-up-form">
+            <input class="form-control-lg" name="credentials[email]" type="email" placeholder="Email">
+            <input class="form-control-lg" name="credentials[password]" type="password" placeholder="Password">
+
+            <input class="form-control-lg" name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
+            <div class="divider"></div>
+            <button type="submit" class="btn btn-secondary">Sign Up</button>
+
+          </form>
+        </div>
+
+        <div class="col-12 box alt-color" id="sign-in-div">
+          <h3>Already a patient?</h3>
+          <div class="divider"></div>
+          <form id="sign-in-form">
+            <input class="form-control-lg" name="credentials[email]" type="email" placeholder="Email">
+            <input class="form-control-lg" name="credentials[password]" type="password" placeholder="Password">
+            <div class="divider"></div>
+            <button type="submit" class="btn btn-secondary">Sign In</button>
+          </form>
+        </div>
+
+            <div class="col-12 box alt-color" id="change-pw-div">
+              <h3>Change Password</h3>
+              <div class="divider"></div>
+              <form id="change-pw-form">
+                <input class="form-control-lg" name="password[old]" type="password" placeholder="Old Password">
+                <input class="form-control-lg" name="password[new]" type="password" placeholder="New Password">
+                <div class="divider"></div>
+                <button type="submit" class="btn btn-secondary">Change</button>
+              </form>
+            </div>
+
+        <div class="col-12 box alt-color" id="sign-out-div">
+          <h3>Done for today?</h3>
+          <div class="divider"></div>
+          <button id="sign-out-button" class="btn btn-secondary" type="submit">SIGN OUT</button>
+        </div>
+
+        <div class="col-12 box alt-color" >
+          <h3></h3>
+          <div class="divider"></div>
+          <p id="sign-up-message"></p>
+          <p id="sign-in-message"></p>
+          <p id="sign-out-message"></p>
+          <p id="change-pw-message"></p>
+        </div> 
+
+      </div>
+    </div>
+    <div id="messages">
+      <p id="success-message"></p>
+      <p id="error-message"></p>
+    </div>
+  </section>
+
+<div id="show-treatment-div">
+  <div class="col-12 alt-color box">
+    <div class="divider"></div>
+  <h2>Get record of all treatments</h2>
+  <div class="divider"></div>
+  <button class="btn btn-success" id="treatments-index">Get Record</button>
+  <div class="divider"></div>
+  </div>
+
+  <div class="col-12 alt-color box">
+    <h2>Log a treatment</h2>
+    <div class="divider"></div>
+    <form id="treatments-create">
+      <input class="form-control-lg" type="text" name="treatment[name]" placeholder="Treatment Name " required>
+      <input class="form-control-lg" type="text" name="treatment[tooth]" placeholder="Tooth # " required>
+      <input class="form-control-lg" type="text" name="treatment[radiographs]" placeholder="Type of X-rays" required>
+      <input class="form-control-lg" type="date" name="treatment[date]" placeholder="Date of Service" required>
+      <div class="divider"></div>
+      <button class="btn btn-success" type="submit">Submit</button>
+    </form>
+    </div>
+
+  
+    <div class="col-12 alt-color box">
+    <h2>Show a treatment</h2>
+    <div class="divider"></div>
+    <form id="treatments-show">
+      <input class="form-control-lg" type="text" name="treatment[id]" placeholder="Treatment ID " required>
+      <div class="divider"></div>
+      <button class="btn btn-success" type="submit">Show Treatment</button>
+    </form>
+    </div>
+
+    <div class="col-12 alt-color box">
+      <p id="treatments-update-message"></p>  
+      <p id="treatments-destroy-message"></p>
+      <p id="treatments-create-message"></p>
+      <p id="treatments-show-message"></p>
+    </div>
+    </div>
+
+    <!-- <div class="divider"></div> -->
+
+    <!-- <h2>Update a treatment</h2>
+    <form id="treatments-update">
+      <input class="form-control-lg" type="text" name="treatment[id]" placeholder="Treatment ID here" required>
+      <input class="form-control-lg" type="text" name="treatment[name]" placeholder="Treatment name here" required>
+      <input class="form-control-lg" type="text" name="treatment[tooth]" placeholder="Tooth # here" required>
+      <input class="form-control-lg" type="text" name="treatment[radiographs]" placeholder="type of X-rays" required>
+      <input class="form-control-lg" type="date" name="treatment[date]" placeholder="Date of service" required>
+      <button class="btn btn-success" type="submit">Update treatment</button>
+    </form> -->
+    
+
+    <!-- <h2>Delete a Treatment</h2>
+    <form id="treatments-destroy">
+      <input class="form-control-lg" type="text" name="treatment[id]" placeholder="Treatment ID Here" required>
+      <button class="btn btn-success" type="submit">Delete Treatment</button>
+    </form> -->
+    
+    
+    <div id="each-treatment">
+      <div id="treatments-display"></div>
+    </div>
+
+
+
+</body>
+
+</html>
