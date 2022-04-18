@@ -87,11 +87,12 @@ const onShowTreatment = function (event) {
   // create a javascript object from the form (event.target) where the user entered the tx id
   const formData = getFormFields(event.target)
   // make API call for getting one tx with the id of the tx we grabbed from the form
-  dentalApi.showTreatment(formData.treatment.id)
-    // if the API call is successful then pass the data to the onShowSuccess function
+  dentalApi
+    .showTreatment(formData.treatment.id)
+  // if the API call is successful then pass the data to the onShowSuccess function
     .then(dentalUi.onShowSuccess)
   // if the API call fails then run our onError function
-  // .catch(ui.onError)
+    .catch(dentalUi.onShowFailure)
 }
 
 // UPDATE

@@ -216,6 +216,19 @@ const onShowSuccess = function (responseData) {
   $('form').trigger('reset')
 }
 
+const onShowFailure = function (responseData) {
+  $('#treatments-show-message')
+		.html('Error finding treatment')
+		.css('color', 'red')
+  $('#treatments-create-message, #treatments-destroy-message, #treatments-update-message'
+  ).hide()
+  $('#treatments-show-message').show()
+
+  setTimeout(() => {
+    $('#treatments-show-message').html('')
+  }, 3000)
+}
+
 const onUpdateSuccess = function (responseData) {
   // add success message to our treatments-update-message element
   $('#treatments-update-message').html('Treatment Updated. Click GET RECORD to show')
@@ -269,6 +282,7 @@ module.exports = {
   onCreateSuccess,
   onIndexSuccess,
   onShowSuccess,
+  onShowFailure,
   onUpdateSuccess,
   onDestroySuccess
 }
